@@ -484,6 +484,10 @@ p#codename {
 #cols li.source .submission-count span.unread {
   border: 0;
 }
+#cols li.source .submission-count span.label {
+  border: 0;
+  padding: 1px;
+}
 
 #replies .reply {
   border: 1px solid #999999;
@@ -555,6 +559,40 @@ p#no-replies {
   display: inline-block;
   width: 3.5%;
   color: #7985aa;
+}
+
+.tag-label {
+  display: inline-block;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  border: 1px solid #dedede;
+  padding: 3px;
+  margin-right: 1px;
+  font-size: 8pt;
+  background-color: #7683a9;
+  color: white;
+  text-decoration:none;
+}
+.tag-label:hover {
+  background-color: #99a4bf;
+}
+
+.untagged-tag-label {
+  display: inline-block;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  border: 1px solid #dedede;
+  padding: 3px;
+  background: #f3f3f3;
+  background-color: #dbe4f1;
+  color: black;
+  margin-right: 1px;
+  font-size: 8pt;
+}
+.untagged-tag-label:hover{
+  background: #f3f3f3;
+  background-color: #7683a9;
+  color: white;
 }
 
 ul.plain {
