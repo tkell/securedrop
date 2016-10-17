@@ -57,6 +57,10 @@
                   <button formaction="/change-assignment/{{ source.filesystem_id }}">Apply</button>
                   <a class="btn" href="#{{ source.filesystem_id }}-assignment">Cancel</a>
                 </div>
+              <div>
+                {% for source_label in source_labels[source.id] %}
+                  <a><span class="tagged tag-label">{{ source_label.SourceLabelType.label_text }}</span></a>
+                {% endfor %}
               </div>
             </li>
           {% endfor %}
@@ -105,6 +109,10 @@
                   <button formaction="/change-assignment/{{ source.filesystem_id }}">Apply</button>
                   <a class="btn" href="#{{ source.filesystem_id }}-assignment">Cancel</a>
                 </div>
+              <div>
+                {% for tag in source_labels[source.id] %}
+                  <a><span class="tagged tag-label">{{ tag.SourceLabelType.label_text }}</span></a>
+                {% endfor %}
               </div>
             </li>
           {% endfor %}
@@ -116,4 +124,19 @@
     <p>No documents have been submitted!</p>
   {% endif %}
 </div>
+{% if all_labels %}
+  <div>
+    <form id="filter_by_label" method="post">
+      Filter by label:
+      <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+        {% for label in all_labels %}
+          {% if label.SourceLabelType.id == filter_label %}
+            <a href="/" class="tag-label">{{ label.SourceLabelType.label_text }} <i class="fa fa-times"></i></a>
+          {% else %}
+            <button type="submit" name="action" formaction="/filter_by_label/{{ label.SourceLabelType.id }}" class="untagged-tag-label">{{ label.SourceLabelType.label_text }}</button>
+          {% endif %}
+        {% endfor %}
+    </form>
+  </div>
+{% endif %}
 {% endblock %}
