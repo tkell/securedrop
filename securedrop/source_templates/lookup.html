@@ -29,9 +29,9 @@
 
   <hr class="no-line">
 
-  <button type="submit" class="btn primary">
+  <button type="submit" class="sd-button btn primary">
   <img src="{{ url_for('static', filename='i/font-awesome/white/cloud-upload.svg') }}" width="17px" height="17px">
-  Submit</button>
+  SUBMIT</button>
 </form>
 
 <p><strong>Tip:</strong> If you are already familiar with GPG, you can optionally encrypt your files and messages with our <a href="/journalist-key" class="text-link">public key</a> before submission. Files are encrypted as they are received by SecureDrop; encrypting before submission provides an extra layer of security before your data reaches SecureDrop. <a href="/why-journalist-key" class="text-link">Learn more</a>.</p>
@@ -55,7 +55,7 @@
           <div id="confirm-delete-{{ reply.filename }}" class="confirm-prompt">
             <p>Delete this reply?
               <a href="#delete">Cancel</a>
-              <button type="submit" class="btn danger">Delete</button>
+              <button type="submit" class="sd-button btn danger">DELETE</button>
               </p>
           </div>
         </form>
@@ -64,12 +64,12 @@
       </div>
     {% endfor %}
     <form id="delete-all" method="post" action="/delete-all">
-      <a class="btn" href="#delete-all-confirm">Delete all replies</a>
+      <a class="sd-button btn" href="#delete-all-confirm">DELETE ALL REPLIES</a>
       <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
       <div id="delete-all-confirm" class="hidden-prompt">
         <p>Are you finished with the replies?</p>
-        <button class="danger" type="submit">Yes, delete all replies</button>
-        <a class="btn cancel" href="#delete-all">No, not yet</a>
+        <button class="sd-button danger" type="submit">YES, DELETE ALL REPLIES</button>
+        <a class="sd-button btn cancel" href="#delete-all">NO, NOT YET</a>
       </div>
     </form>
   {% else %}
